@@ -1,7 +1,7 @@
 {
   "name": "Clipboardy",
-  "homepage_url": "http://rainsoft.io",
-  "version": "0.9.3",
+  "homepage_url": "https://github.com/panzerdp/clipboardy",
+  "version": "0.9.6",
   "description": "Copy to clipboard posted code from stackoverflow.com, github.com & npmjs.com. Clipboard usage history.",
   "author": "Dmitri Pavlutin",
   "icons": {
@@ -10,11 +10,11 @@
   },
   "content_scripts": [{
     "matches": [
-      "http://*.stackoverflow.com/*",
-      "http://*.askubuntu.com/*",
-      "http://*.stackexchange.com/*",
-      "http://superuser.com/*",
-      "http://serverfault.com/*"
+      "*://*.stackoverflow.com/*",
+      "*://*.askubuntu.com/*",
+      "*://*.stackexchange.com/*",
+      "*://superuser.com/*",
+      "*://serverfault.com/*"
     ],
     "js": [
       "compile/js/vendors_content_script.js",
@@ -22,8 +22,7 @@
     ],
     "css": [
       "compile/css/stackoverflow.css"
-    ],
-    "run_at": "document_idle"
+    ]
   }, {
     "matches": [
       "https://*.github.com/*"
@@ -34,8 +33,7 @@
     ],
     "css": [
       "compile/css/github.css"
-    ],
-    "run_at": "document_idle"
+    ]
   }, {
     "matches": [
       "https://www.npmjs.com/*"
@@ -46,8 +44,7 @@
     ],
     "css": [
       "compile/css/github.css"
-    ],
-    "run_at": "document_idle"
+    ]
   }],
   "background": {
     "scripts": [
@@ -68,7 +65,6 @@
   "permissions": [
     "tabs",
     "storage",
-    "http://stackoverflow.com/*",
     "clipboardWrite",
     "contextMenus"
   ],
